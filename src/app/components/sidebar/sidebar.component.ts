@@ -1,3 +1,4 @@
+import { AuthService } from './../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -51,12 +52,18 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
   public logo: any = 'assets/img/logo/LUIZ_FITNESS_LOGO_FULL.png';
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, private auth: AuthService) {}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
     });
+  }
+
+  async logout() {
+    this.auth.logout();
+    await this.router.navigate(['login']);
   }
 }

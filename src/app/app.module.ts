@@ -1,7 +1,8 @@
+import { JwtInterceptor } from './core/_helpers/jwt.interceptor';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsModule } from './components/components.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './layouts/auth/auth.component';
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -21,7 +22,9 @@ import { AppComponent } from './app.component';
     NgbModule,
     RouterModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
