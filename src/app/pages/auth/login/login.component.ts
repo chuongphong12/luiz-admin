@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         .subscribe((data) => {
           if (data) {
             this.submitted = false;
-            this.router.navigate(['dashboard']);
+            this.router.navigate([this.returnUrl]);
           }
         });
     }

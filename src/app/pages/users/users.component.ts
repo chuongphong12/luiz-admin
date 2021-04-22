@@ -17,9 +17,8 @@ export class UsersComponent implements OnInit {
   }
 
   getAllUser() {
-    this.userService.getAll().subscribe((users) => {
-      console.log(users);
-      this.users = users.map((user) => {
+    this.userService.getAll().subscribe((data) => {
+      this.users = data.users.map((user: User) => {
         return user;
       });
     });

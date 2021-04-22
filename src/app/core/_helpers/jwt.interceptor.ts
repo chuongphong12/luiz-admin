@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 import {
@@ -19,24 +20,15 @@ export class JwtInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     // add authorization header with jwt token if available
     const currentUser = this.authService.currentUserValue;
-    if (currentUser && currentUser.token) {
+    const isLoggedIn = currentUser && currentUser.token;
+    const isApiUrl = request.url.startsWith(environment.apiUrl);
+    if (isLoggedIn && isApiUrl) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${currentUser.token}`,
         },
       });
     }
-    return next.handle(request).pipe(
-      catchError((err) => {
-        if (err.status === 401) {
-          // auto logout if 401 response returned from api
-          this.authService.logout();
-          location.reload(true);
-        }
-
-        const error = err.error.message || err.statusText;
-        return throwError(error);
-      })
-    );
+    return next.handle(request);
   }
 }

@@ -1,3 +1,4 @@
+import { ErrorInterceptor } from './core/_helpers/error.interceptor';
 import { JwtInterceptor } from './core/_helpers/jwt.interceptor';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +25,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
