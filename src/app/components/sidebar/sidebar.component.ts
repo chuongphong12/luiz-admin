@@ -14,27 +14,32 @@ export const ROUTES: RouteInfo[] = [
     icon: 'ni-tv-2 text-primary',
     class: '',
   },
-  { path: '/icons', title: 'Icons', icon: 'ni-planet text-blue', class: '' },
-  { path: '/maps', title: 'Maps', icon: 'ni-pin-3 text-orange', class: '' },
+  { path: '/users', title: 'Users', icon: 'ni-planet text-blue', class: '' },
   {
-    path: '/user-profile',
-    title: 'User profile',
-    icon: 'ni-single-02 text-yellow',
+    path: '/products',
+    title: 'Products',
+    icon: 'ni-pin-3 text-orange',
     class: '',
   },
-  {
-    path: '/tables',
-    title: 'Tables',
-    icon: 'ni-bullet-list-67 text-red',
-    class: '',
-  },
-  { path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '' },
-  {
-    path: '/register',
-    title: 'Register',
-    icon: 'ni-circle-08 text-pink',
-    class: '',
-  },
+  // {
+  //   path: '/user-profile',
+  //   title: 'User profile',
+  //   icon: 'ni-single-02 text-yellow',
+  //   class: '',
+  // },
+  // {
+  //   path: '/tables',
+  //   title: 'Tables',
+  //   icon: 'ni-bullet-list-67 text-red',
+  //   class: '',
+  // },
+  // { path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '' },
+  // {
+  //   path: '/register',
+  //   title: 'Register',
+  //   icon: 'ni-circle-08 text-pink',
+  //   class: '',
+  // },
 ];
 
 @Component({
@@ -45,7 +50,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
-
+  public logo: any = 'assets/img/logo/LUIZ_FITNESS_LOGO_FULL.png';
   constructor(private router: Router) {}
 
   ngOnInit() {

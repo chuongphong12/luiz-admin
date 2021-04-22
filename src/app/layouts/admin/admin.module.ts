@@ -1,3 +1,6 @@
+import { ProductsComponent } from './../../pages/products/products.component';
+import { UsersComponent } from './../../pages/users/users.component';
+import { DashboardComponent } from './../../pages/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -8,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
-  declarations: [],
+  declarations: [DashboardComponent, UsersComponent, ProductsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

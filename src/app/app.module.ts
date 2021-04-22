@@ -7,18 +7,11 @@ import { AuthComponent } from './layouts/auth/auth.component';
 import { AdminComponent } from './layouts/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminComponent,
-    AuthComponent,
-    DashboardComponent,
-  ],
+  declarations: [AppComponent, AdminComponent, AuthComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
