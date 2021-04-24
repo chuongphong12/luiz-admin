@@ -11,14 +11,17 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  //Get all user array
   getAll() {
     return this.http.get<any>(`${environment.apiUrl}/users`);
   }
 
+  //Get user by user id
   getById(id: string) {
     return this.http.get<any>(`${environment.apiUrl}/users/${id}`);
   }
 
+  //Retrieve current user information
   getCurrent() {
     return this.http.get<any>(`${environment.apiUrl}/me`);
   }

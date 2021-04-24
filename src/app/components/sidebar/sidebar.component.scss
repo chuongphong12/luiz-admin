@@ -3,3 +3,9 @@
     max-height: 5.5rem !important;
   }
 }
+
+.nav-item {
+  .nav-link {
+    cursor: pointer;
+  }
+}
